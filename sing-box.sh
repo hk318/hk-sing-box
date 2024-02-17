@@ -1907,7 +1907,7 @@ change_protocols() {
 
   # 用于新节点的配置信息
   UUID=$(awk '{print $1}' <<< "${UUID[@]} $TROJAN_PASSWORD")
-  NODE_NAME=$(awk '{print $1}' <<< "${NODE_NAME[@]}")
+  NODE_NAME=$(awk '{print; exit}' <<< "${NODE_NAME[@]}")
   [ "${#WS_SERVER_IP[@]}" -gt 0 ] && WS_SERVER_IP=$(awk '{print $1}' <<< "${WS_SERVER_IP[@]}") && CDN=$(awk '{print $1}' <<< "${CDN[@]}")
 
   # 寻找待删除协议的 inbound 文件名
